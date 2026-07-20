@@ -1,0 +1,213 @@
+{
+  "main": {
+    "id": "cf06e78f8d6577c5",
+    "type": "split",
+    "children": [
+      {
+        "id": "78f373ef844ccf87",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b4b4e5aea3dd0779",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "15742be483d4478f",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f1590fdf2dd8de2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "533cbea17cb79cad",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "24ea6a6029d436e4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "28e214b9030c9d1c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "a5ee72bdb6e17e1b",
+    "type": "split",
+    "children": [
+      {
+        "id": "60c536a2c1d84580",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "62f728a596359f2d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "进阶.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "进阶 的反向链接列表"
+            }
+          },
+          {
+            "id": "34f470f8a72f833e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "进阶.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "进阶 的出链列表"
+            }
+          },
+          {
+            "id": "c7dfb07161961c1e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "7e67ed15b113d822",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "e4f3a76c0afafd06",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "进阶.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "进阶 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "533cbea17cb79cad",
+  "lastOpenFiles": [
+    "2026-04-21.md",
+    "未命名.base",
+    "未命名.canvas",
+    "SpringBoot/小白.md",
+    "JavaWeb/JavaScript/js核心语法.md",
+    "SpringBoot",
+    "不可变集合.md",
+    "方法引用.md",
+    "Java后端开发/Maven/Maven进阶.md",
+    "Java后端开发/Maven/Maven小白进阶.md",
+    "Java后端开发/Maven/Maven小白.md",
+    "Stream流.md",
+    "JavaWeb/JavaScript",
+    "JavaWeb",
+    "Java后端开发/ssm/容器篇.md",
+    "Java后端开发/ssm",
+    "Java后端开发/SSM.md",
+    "Java后端开发/java集合常用方法笔记.md",
+    "java集合常用方法笔记.md",
+    "可变参数.md",
+    "java.time.md",
+    "Java后端开发/JDBC/进阶.md",
+    "Java后端开发/JDBC",
+    "Java后端开发/Maven",
+    "Java后端开发/JDBC/基础.md",
+    "2026-04-12.md",
+    "Java后端开发",
+    "open.url"
+  ]
+}
