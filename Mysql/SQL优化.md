@@ -200,3 +200,382 @@ z92kd11
 4
 ```
 
+
+# 3.order by优化
+
+SQL：
+
+```
+select *
+from user
+order by age;
+```
+
+MySQL排序：
+
+两种方式：
+
+---
+
+# 方式1：Using filesort
+
+没有索引：
+
+```
+查询数据
+
+↓
+
+内存排序
+
+↓
+
+返回
+```
+
+执行计划：
+
+```
+Using filesort
+```
+
+效率低。
+
+---
+
+# 方式2：利用索引排序
+
+创建：
+
+```
+create index idx_age
+on user(age);
+```
+
+执行：
+
+```
+select *
+from user
+order by age;
+```
+
+直接：
+
+```
+索引已经有序
+```
+
+无需排序。
+
+---
+
+## 联合索引排序
+
+索引：
+
+```
+(name,age)
+```
+
+可以：
+
+```
+order by name;
+```
+
+可以：
+
+```
+order by name,age;
+```
+
+不能：
+
+```
+order by age;
+```
+
+原因：
+
+最左匹配原则。
+
+# 4. group by优化
+
+SQL：
+
+```
+select age,count(*)
+from user
+group by age;
+```
+
+没有索引：
+
+```
+查询全部数据
+
+↓
+
+排序
+
+↓
+
+分组
+```
+
+---
+
+优化：
+
+建立：
+
+```
+create index idx_age
+on user(age);
+```
+
+执行：
+
+```
+索引有序
+
+↓
+
+直接分组
+```
+
+---
+
+## group by 和 order by
+
+不要：
+
+```
+group by age
+order by age;
+```
+
+因为：
+
+group by默认排序。
+
+MySQL 8以后：
+
+可以：
+
+```
+group by age
+order by null;
+```
+
+取消排序。
+
+
+# 5. limit优化
+
+常见：
+
+```
+select *
+from user
+limit 100000,10;
+```
+
+问题：
+
+MySQL：
+
+先扫描：
+
+```
+100010条
+```
+
+然后丢弃：
+
+```
+100000条
+```
+
+只返回10条。
+
+---
+
+## 优化方式1：覆盖索引
+
+例如：
+
+```
+select id
+from user
+limit 100000,10;
+```
+
+先找到id。
+
+---
+
+## 优化方式2：子查询
+
+原：
+
+```
+select *
+from user
+limit 100000,10;
+```
+
+优化：
+
+```
+select *
+from user
+where id >=
+(
+select id
+from user
+limit 100000,1
+)
+limit 10;
+```
+
+速度提升明显。
+
+
+# 6. count优化
+
+常见：
+
+```
+select count(*)
+from user;
+```
+
+---
+
+## count区别
+
+### count(*)
+
+统计行数：
+
+最快。
+
+---
+
+### count(id)
+
+统计id不为空。
+
+---
+
+### count(字段)
+
+忽略null。
+
+例如：
+
+数据：
+
+|id|name|
+|---|---|
+|1|张三|
+|2|null|
+
+```
+count(name)
+```
+
+结果：
+
+```
+1
+```
+
+---
+
+## 优化方案
+
+不要：
+
+```
+select count(*) from 大表;
+```
+
+频繁执行。
+
+可以：
+
+维护：
+
+```
+统计表
+```
+
+例如：
+
+```
+user_count
+
+count=1000000
+```
+
+# 7. update优化
+
+## 问题：
+
+更新大量数据：
+
+```
+update user
+set age=20;
+```
+
+可能：
+
+锁很多数据。
+
+---
+
+## 优化1：根据索引更新
+
+不要：
+
+```
+update user
+set name='张三'
+where name='李四';
+```
+
+如果name无索引：
+
+全表扫描。
+
+建立：
+
+```
+create index idx_name
+on user(name);
+```
+
+---
+
+## 优化2：分批更新
+
+不要：
+
+```
+update user
+set status=1;
+```
+
+改：
+
+```
+update user
+set status=1
+where id between 1 and 10000;
+```
+
+循环执行。
