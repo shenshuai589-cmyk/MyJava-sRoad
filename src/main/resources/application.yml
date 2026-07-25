@@ -1,0 +1,31 @@
+server:
+  port: 8080 # ?????
+
+spring:
+  application:
+    name: campus-secondhand
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/campus_secondhand
+    username: root
+    password: 250712
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml   # ??mapper?????????
+  type-aliases-package: com.campus.secondhand.pojo # ???
+  configuration:
+    map-underscore-to-camel-case: true  # ????
+
+
+# Knife4j底层依赖 SpringDoc OpenAPI 的配置。
+springdoc: # 自动扫描 SpringMVC 接口，生成 OpenAPI规范文档。
+  swagger-ui: # 设置 Swagger 页面访问地址  默认： /swagger-ui/index.html
+    path: /swagger-ui.html
+
+  api-docs:
+    path: /v3/api-docs # 生成接口数据的地址。
+
+jwt:
+  secret: campus-secondhand-secret-key
+  expire: 7200000

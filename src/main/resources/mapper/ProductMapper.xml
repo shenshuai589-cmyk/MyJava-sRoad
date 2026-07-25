@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace必须是Mapper或dao接口的全限定包名-->
+
+<mapper namespace="com.campus.secondhand.mapper.ProductMapper">
+    <!--id必须是Mapper或dao接口内的方法名-->
+    <!--resultType必须是pojo类名-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into product
+        (
+            category_id,
+            seller_id,
+            title,
+            price,
+            condition_level,
+            trade_type,
+            description,
+            audit_status,
+            status,
+            is_deleted
+        )
+        values
+            (
+                #{categoryId},
+                #{sellerId},
+                #{title},
+                #{price},
+                #{conditionLevel},
+                #{tradeType},
+                #{description},
+                #{auditStatus},
+                #{status},
+                #{isDeleted}
+            )
+    </insert>
+
+    <delete id="delete">
+        update product
+        set is_delete = 1
+        where id = #{id}
+    </delete>
+
+    <select id="selectList" resultType="Product">
+        select
+            id,
+            user_id,
+            name,
+            description,
+            price,
+            image,
+            status,
+            view_count,
+            create_time,
+            update_time
+        from product
+        <where>
+            status = 1
+        <if test="keyword != null and keyword !=''">
+            and title like concat('%',#{keyword},'%')
+        </if>
+            <!-- 分类 -->
+            <if test="categoryId != null">
+                and category_id = #{categoryId}
+            </if>
+            <!-- 最低价格 -->
+            <if test="minPrice != null">
+                and price &gt;= #{minPrice}
+            </if>
+            <!-- 最高价格 -->
+            <if test="maxPrice != null">
+                and price &lt;= #{maxPrice}
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+
+    <select id="selectMyProducts" resultType="Product">
+        select *
+        from product
+        where seller_id = #{userId}
+        and is_deleted=0
+        order by create_time desc
+    </select>
+
+    <select id="findById" resultType="com.campus.secondhand.pojo.Product">
+        select *
+        from product
+        where id=#{id}
+          and is_deleted=0
+
+    </select>
+
+    <select id="findAuditList" resultType="Product">
+        select *
+        from product
+        where audit_status = 0
+        order by create_time desc
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(*)
+        from product
+        where is_deleted = 0
+    </select>
+
+
+    <update id="updateViewCount">
+
+        update product
+        set view_count = view_count + 1
+        where id=#{id}
+
+    </update>
+
+    <update id="updateStatus">
+        update product
+        set status=#{status}
+        where id = #{id}
+    </update>
+
+    <update id="update">
+        update product
+        <set>
+        category_id = #{categoryId},
+            title = #{title},
+            price = #{price},
+            condition_level = #{conditionLevel},
+            trade_type = #{tradeType},
+            description = #{description}
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updateAuditStatus">
+        update product
+        set audit_status = #{auditStatus}
+        where id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace必须是Mapper或dao接口的全限定包名-->
+
+<mapper namespace="com.campus.secondhand.mapper.TradeMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into trade(
+                          trade_no,
+                          product_id,
+                          buyer_id,
+                          seller_id,
+                          price,
+                          trade_type,
+                          meet_time,
+                          meet_place,
+                          status
+        )
+        values
+            (
+             #{tradeNo},
+             #{productId},
+             #{buyerId},
+             #{sellerId},
+             #{price},
+             #{tradeType},
+             #{meetTime},
+             #{meetPlace},
+             #{status}
+            )
+    </insert>
+
+    <select id="findById" resultType="Trade">
+        select *
+        from trade
+        where id=#{id}
+    </select>
+
+    <select id="selectBuyerTrades" resultType="com.campus.secondhand.vo.TradeVO">
+        select
+            t.id,
+            t.product_id,
+            p.title productTitle,
+            p.main_image productImage,
+            t.price,
+            seller.username sellerName,
+            buyer.username buyerName,
+            t.status,
+            t.create_time
+        from trade t
+        left join product p
+        on t.product_id = p.id
+        left join user seller
+        on t.seller_id = seller.id
+        left join user buyer
+        on t.buyer_id = buyer.id
+        where t.buyer_id = #{userId}
+        order by t.create_time desc
+    </select>
+
+    <select id="selectSellerTrades" resultType="com.campus.secondhand.vo.TradeVO">
+        select
+            t.id,
+            t.product_id,
+            p.title productTitle,
+            p.main_image productImage,
+            t.price,
+            seller.username sellerName,
+            buyer.username buyerName,
+            t.status,
+            t.create_time
+        from trade t
+        left join product p
+        on t.product_id = p.id
+        left join user seller
+        on t.seller_id = seller.id
+        left join user buyer
+        on t.buyer_id = buyer.id
+        where t.seller_id = #{userId}
+        order by t.create_time desc
+    </select>
+
+    <select id="detail" resultType="com.campus.secondhand.vo.TradeVO">
+        select
+            t.id,
+            t.trade_no,
+            t.product_id,
+            p.title productTitle,
+            p.main_image productImage,
+            t.price,
+            t.trade_type,
+            t.meet_time,
+            t.meet_place,
+            t.status,
+            t.cancel_reason,
+            t.create_time,
+            t.finish_time,
+            seller.username sellerName,
+            buyer.username buyerName,
+        from trade t
+        left join product p
+        on t.product_id = p.id
+        left join user seller
+        on t.seller_id = seller.id
+        left join user buyer
+        on t.buyer_id = buyer.id
+        where t.id = #{id}
+    </select>
+
+    <select id="countFinish" resultType="java.lang.Integer">
+        select count(*)
+        from trade
+        where status = 2
+    </select>
+
+    <select id="sumAmount" resultType="java.math.BigDecimal">
+        select IFNULL(sum(price),0)
+        from trade
+        where status = 2
+    </select>
+
+    <update id="updateStatus">
+        update trade
+        set status = #{status}
+        where id = #{id}
+    </update>
+    <!--id必须是Mapper或dao接口内的方法名-->
+    <!--resultType必须是pojo类名-->
+</mapper>

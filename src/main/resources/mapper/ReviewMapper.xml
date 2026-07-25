@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace必须是Mapper或dao接口的全限定包名-->
+
+<mapper namespace="com.campus.secondhand.mapper.ReviewMapper">
+    <!--id必须是Mapper或dao接口内的方法名-->
+    <!--resultType必须是pojo类名-->
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into review(
+                           trade_id,
+                           from_user_id,
+                           to_user_id,
+                           score,
+                           content,
+                           tags)
+        values (
+                #{tradeId},
+                #{fromUserId},
+                #{toUserId},
+                #{score},
+                #{content},
+                #{tags}
+               )
+    </insert>
+
+    <select id="findByUserId" resultType="com.campus.secondhand.vo.ReviewVO">
+        select
+            r.id,
+            u.username,
+            u.avatar,
+            r.score,
+            r.content,
+            t.tags,
+            r.create_time
+        from review r
+        left join user u
+        on r.from_user_id = u.id
+        where r.to_user_id = #{userId}
+        order by r.create_time desc
+    </select>
+
+    <select id="findByTradeAndUser" resultType="Review">
+        select *
+        from review
+        where trade_id = #{tradeId}
+        and from_user_id = #{userId}
+    </select>
+</mapper>

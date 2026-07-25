@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace必须是Mapper或dao接口的全限定包名-->
+
+<mapper namespace="com.campus.secondhand.mapper.ProductImageMapper">
+    <!--id必须是Mapper或dao接口内的方法名-->
+    <!--resultType必须是pojo类名-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into product_image(
+                                  product_id,
+                                  image_url,
+                                  sort)
+        values (
+                #{productId},
+                #{imageUrl},
+                #{sort})
+    </insert>
+
+    <select id="findByProductId" resultType="java.lang.String">
+        select image_url
+        from product_image
+        where product_id = #{productId}
+        order by sort asc
+    </select>
+
+    <delete id="deleteByProductId">
+        delete from product_image
+        where product_id = #{productId}
+    </delete>
+</mapper>

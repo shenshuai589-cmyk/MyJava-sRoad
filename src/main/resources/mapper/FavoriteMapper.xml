@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace必须是Mapper或dao接口的全限定包名-->
+
+<mapper namespace="com.campus.secondhand.mapper.FavoriteMapper">
+    <!--id必须是Mapper或dao接口内的方法名-->
+    <!--resultType必须是pojo类名-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        insert into favorite(
+                             user_id,
+                             product_id
+        )values (
+                 #{userId},
+                 #{productId}
+                        )
+    </insert>
+
+    <delete id="delete">
+        delete from favorite
+        where user_id = #{userId}
+        and product_id = #{productId}
+    </delete>
+
+    <select id="findByUserId" resultType="Favorite">
+        select
+            f.id,
+            f.product_id,
+            p.title,
+            p.price,
+            p.image,
+            p.seller_id,
+            u.username sellerName,
+            f.create_time
+        from favorite f
+        left join product p
+        on f.product_id = p.id
+        left join user u
+        on p.seller_id = u.id
+        where f.user_id = #{userId}
+        order by f.create_time desc
+    </select>
+
+    <select id="findOne" resultType="Favorite">
+        select *
+        from favorite
+        where user_id = #{userId}
+        and  product_id = #{productId}
+    </select>
+
+    <select id="countByProductId" resultType="Integer">
+        select count(*)
+        from favorite
+        where product_id = #{productId}
+    </select>
+</mapper>

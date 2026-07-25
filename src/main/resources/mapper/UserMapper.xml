@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace必须是Mapper或dao接口的全限定包名-->
+
+<mapper namespace="com.campus.secondhand.mapper.UserMapper">
+    <select id="findAll" resultType="User">
+        select
+            id,
+            username,
+            phone,
+            avatar,
+            role,
+            status,
+            create_time
+        from user
+        order by create_time desc
+    </select>
+
+    <select id="findById" resultType="User">
+        select id,username,avatar
+        from user
+        where id=#{id}
+    </select>
+
+    <select id="findByUsername" resultType="User">
+        select *
+        from user
+        where username = #{username}
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(*)
+        from user
+    </select>
+
+    <insert id="insert" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        insert into
+            user(username,password,phone)
+        values (#{username},#{password},#{phone})
+    </insert>
+    <!--id必须是Mapper或dao接口内的方法名-->
+    <!--resultType必须是pojo类名-->
+
+    <update id="update">
+        update user
+        <set>
+            nickname = #{nickname},
+            phone = #{phone},
+            avatar = #{avatar}
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="updatePassword">
+        update user
+        set password = #{password}
+        where id = #{id}
+    </update>
+
+    <update id="updateStatus">
+        update user
+        set status = #{status}
+        where id = #{id}
+    </update>
+
+</mapper>
