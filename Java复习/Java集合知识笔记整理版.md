@@ -314,6 +314,77 @@ compareTo()
 -   0：元素相同，不存入
 -   正数：当前元素大
 
+
+### 1. 自然排序（Natural Ordering）
+
+- **原理**：元素所属的类 **实现 `Comparable` 接口**，并重写 `compareTo(T o)` 方法。
+    
+- **适用场景**：当类有默认的、固定的排序规则时使用（例如 `Integer`、`String` 等 Java 内置类默认已经实现了该接口）。
+    
+- **使用方式**：使用无参构造函数创建 TreeSet：`new TreeSet<>()`。
+    
+
+Java
+
+```
+// 自定义类实现 Comparable 接口
+public class Student implements Comparable<Student> {
+    private String name;
+    private int age;
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        // 按年龄升序排序
+        return Integer.compare(this.age, o.age);
+    }
+}
+
+// 使用：
+Set<Student> set = new TreeSet<>();
+set.add(new Student("张三", 20));
+set.add(new Student("李四", 18));
+```
+
+### 2. 比较器排序（Comparator Ordering）
+
+- **原理**：在创建 TreeSet 时，传入一个自定义的 **`Comparator` 比较器对象**，重写 `compare(T o1, T o2)` 方法。
+    
+- **适用场景**：
+    
+    1. 元素所属的类没有实现 `Comparable` 接口，且你**无法修改其源码**。
+        
+    2. 元素类已经有了默认排序规则，但你需要**临时或特殊的排序规则**（如按字符串长度排序、降序排序等）。
+        
+- **使用方式**：使用带参构造函数创建 TreeSet：`new TreeSet<>(Comparator)`。
+    
+
+Java
+
+```
+// 使用 Lambda 表达式或匿名内部类传入 Comparator
+Set<Student> set = new TreeSet<>((s1, s2) -> {
+    // 按年龄降序排序（与自然排序方向相反）
+    return Integer.compare(s2.getAge(), s1.getAge());
+});
+
+set.add(new Student("张三", 20));
+set.add(new Student("李四", 18));
+```
+
+### 两种方式对比与核心注意点
+
+|**特性**|**自然排序 (Comparable)**|**比较器排序 (Comparator)**|
+|---|---|---|
+|**重写方法**|`compareTo(T o)`|`compare(T o1, T o2)`|
+|**代码位置**|写在**元素类**内部|写在** TreeSet 构造方法**参数中|
+|**灵活性**|规则单一，修改不便|灵活性高，可自由更换不同比较逻辑|
+|**优先级**|较低|**较高**（若同时存在，以 Comparator 为准）|
+
 ------------------------------------------------------------------------
 
 # 十、Map 集合
