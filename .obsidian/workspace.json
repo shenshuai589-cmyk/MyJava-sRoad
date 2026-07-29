@@ -13,26 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java复习/Java集合知识笔记整理版.md",
+                "file": "Java复习/Thread常用的方法.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Java集合知识笔记整理版"
-            }
-          },
-          {
-            "id": "72f81996c09fb665",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Java复习/泛型.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "泛型"
+              "title": "Thread常用的方法"
             }
           }
         ]
@@ -201,10 +187,21 @@
   },
   "active": "77d8de8297710865",
   "lastOpenFiles": [
+    "Java复习/多线程基础.md",
+    "Java复习/Thread常用的方法.md",
+    "Mysql/索引使用规则.md",
+    "Java复习/Collections.md",
+    "Spring/Spring核心思想.md",
+    "Spring",
+    "Mysql/SQL性能分析.md",
+    "Mysql/Mysql回表查询.md",
+    "Mysql/Hash索引详解.md",
+    "Mysql/B树和B+树详解.md",
+    "Mysql/Mysql索引.md",
+    "Java复习/Java集合知识笔记整理版.md",
     "Java复习/HashMap源码逐行解析版_JDK8完整版.md",
     "Java复习/HashMap底层源码分析.md",
     "Java复习/Java集合高级面试补充.md",
-    "Mysql/Mysql索引.md",
     "Mysql/Mysql存储引擎.md",
     "Mysql/Mysql事务.md",
     "SSM/Mybatis/小白.md",
@@ -220,24 +217,14 @@
     "Mysql/mysql_notes.md",
     "Mysql/MVCC原理.md",
     "Mysql/事务原理.md",
-    "Java复习/Java集合知识笔记整理版.md",
     "Java复习/泛型.md",
-    "Java底层源码/ArrayList.md",
     "Java底层源码",
-    "Mysql/InnoDB的架构.md",
     "InnoDB的架构.jfif",
     "Mysql/image/007-InnoDB的架构.png",
     "Mysql/image/InnoDB的架构.jfif",
-    "Mysql/InnoDB的逻辑结构.md",
-    "Mysql/image/006.md",
     "Mysql/image/006-InnoDB逻辑结构图.png",
     "Mysql/image/006-InnoDB逻辑结构图.jfif",
     "Mysql/image/InnoDB逻辑结构图.jfif",
-    "Mysql/行锁.md",
-    "Java复习/迭代器.md",
-    "Java复习/ArrayList底层源码.md",
-    "Java复习/集合.md",
-    "Java复习/lambda表达式.md",
     "Mysql/image/005-表读锁.png",
     "Mysql/image/004-表写锁.png",
     "Mysql/image/003-二级索引.png",
@@ -246,7 +233,6 @@
     "Mysql/image",
     "Java复习/image",
     "Java复习/新建文件夹",
-    "Project/underworld",
     "未命名.canvas",
     "未命名 1.canvas",
     "未命名 2.canvas"
