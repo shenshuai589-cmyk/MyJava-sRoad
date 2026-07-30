@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Java复习/Thread常用的方法.md",
+                "file": "Java复习/Atomic原子.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Thread常用的方法"
+              "title": "Atomic原子"
             }
           }
         ]
@@ -187,8 +187,15 @@
   },
   "active": "77d8de8297710865",
   "lastOpenFiles": [
+    "Java复习/ReentrantLock的底层AQS.md",
+    "Java复习/Atomic原子.md",
+    "Java复习/Lock.md",
+    "Java复习/死锁.md",
+    "Java复习/synchronized.md",
+    "Java复习/线程安全.md",
+    "Java复习/线程常用的方法.md",
+    "Java复习/线程的生命周期.md",
     "Java复习/多线程基础.md",
-    "Java复习/Thread常用的方法.md",
     "Mysql/索引使用规则.md",
     "Java复习/Collections.md",
     "Spring/Spring核心思想.md",
@@ -211,13 +218,6 @@
     "SSM/MVC三层架构/图片/003.png",
     "SSM/MVC三层架构/图片/002.png",
     "SSM/MVC三层架构/图片/001.png",
-    "SSM/MVC三层架构/ReadMe.md",
-    "SSM/JDBC/进阶.md",
-    "SSM/JDBC/基础.md",
-    "Mysql/mysql_notes.md",
-    "Mysql/MVCC原理.md",
-    "Mysql/事务原理.md",
-    "Java复习/泛型.md",
     "Java底层源码",
     "InnoDB的架构.jfif",
     "Mysql/image/007-InnoDB的架构.png",
