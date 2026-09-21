@@ -432,17 +432,17 @@ Objects.compare(
 
 # 九、Objects 和 Object 区别（面试必问）
 
-||Object|Objects|
-|---|---|---|
-|类型|父类|工具类|
-|包|java.lang|java.util|
-|是否需要创建对象|对象实例|静态方法|
-|作用|所有对象基础方法|操作对象|
-|方法|equals/hashCode/toString|equals/isNull/hash等|
+|          | Object                   | Objects             |
+| -------- | ------------------------ | ------------------- |
+| 类型       | 父类                       | 工具类                 |
+| 包        | java.lang                | java.util           |
+| 是否需要创建对象 | 对象实例                     | 静态方法                |
+| 作用       | 所有对象基础方法                 | 操作对象                |
+| 方法       | equals/hashCode/toString | equals/isNull/hash等 |
 
 ---
 
-# 十、Objects 和 ==、equals 区别
+# 十、Objects 和 \==、equals 区别
 
 例如：
 

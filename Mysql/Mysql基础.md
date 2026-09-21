@@ -218,7 +218,6 @@ update 表名 set 字段1 = 值1,字段2 = 值2,...[where 条件];
 
 ```mysql
 delete from 表名 [where 条件];
-
 ```
 
 
@@ -351,7 +350,6 @@ limit
  > 查询用户
  
  ```mysql
-
  use mysql
  select * from user;
  ```
@@ -367,8 +365,7 @@ create user '用户名'@'主机名' identified by '密码';
 > 修改用户密码
 
 ```mysql
-
-alter user '用户名'@'主机名' identified with mysql_native_password by '新密码';
+ALTER USER '用户名'@'主机名' IDENTIFIED BY '新密码';
 ```
 
 > 删除用户

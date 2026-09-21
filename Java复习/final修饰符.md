@@ -230,11 +230,11 @@ public final class String
 
 # 五、final、finally、finalize区别（面试常问）
 
-|关键字|作用|
-|---|---|
-|final|修饰类、方法、变量|
-|finally|异常处理代码块|
-|finalize|对象销毁前调用的方法（已废弃）|
+| 关键字      | 作用              |
+| -------- | --------------- |
+| final    | 修饰类、方法、变量       |
+| finally  | 异常处理代码块         |
+| finalize | 对象销毁前调用的方法（已废弃） |
 
 例如：
 

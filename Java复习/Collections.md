@@ -438,8 +438,7 @@ Collections.emptyMap();
 # 十五、singleton() 创建单元素集合
 
 ```
-List<String> list =
-Collections.singletonList("Java");
+List<String> list = Collections.singletonList("Java");
 ```
 
 只能有一个元素。
@@ -485,10 +484,10 @@ newList.add("Spring");
 
 # 十七、Collections和Collection区别（面试必问）
 
-||Collection|Collections|
-|---|---|---|
-|类型|接口|工具类|
-|包|java.util|java.util|
-|作用|定义集合规范|操作集合|
-|是否能创建对象|不能|不能|
-|方法|add、remove|sort、reverse|
+|         | Collection | Collections  |
+| ------- | ---------- | ------------ |
+| 类型      | 接口         | 工具类          |
+| 包       | java.util  | java.util    |
+| 作用      | 定义集合规范     | 操作集合         |
+| 是否能创建对象 | 不能         | 不能           |
+| 方法      | add、remove | sort、reverse |

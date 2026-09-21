@@ -108,16 +108,16 @@ WHERE username='zhangsan';
 
 结果：
 
-|字段|含义|
-|---|---|
-|id|查询编号|
-|select_type|查询类型|
-|table|访问表|
-|type|访问类型|
-|possible_keys|可能使用索引|
-|key|实际使用索引|
-|rows|扫描行数|
-|Extra|额外信息|
+| 字段            | 含义     |
+| ------------- | ------ |
+| id            | 查询编号   |
+| select_type   | 查询类型   |
+| table         | 访问表    |
+| type          | 访问类型   |
+| possible_keys | 可能使用索引 |
+| key           | 实际使用索引 |
+| rows          | 扫描行数   |
+| Extra         | 额外信息   |
 
 ---
 

@@ -131,11 +131,11 @@ user.getClass()==User.class
 
 区别：
 
-||instanceof|getClass|
-|---|---|---|
-|判断|是否属于某类型|真实类型|
-|支持继承|支持|不支持|
-|返回|boolean|Class对象|
+|      | instanceof | getClass |
+| ---- | ---------- | -------- |
+| 判断   | 是否属于某类型    | 真实类型     |
+| 支持继承 | 支持         | 不支持      |
+| 返回   | boolean    | Class对象  |
 
 ---
 
@@ -365,7 +365,7 @@ a.equals(b)==true
 ```
 a.hashCode()==b.hashCode()
 ```
-
+ 
 否则：
 
 HashMap 可能找不到数据。
@@ -694,8 +694,8 @@ Java为了统一所有对象行为，提供公共方法。
 
 ## 5. final、finally、finalize区别？
 
-||作用|
-|---|---|
-|final|修饰变量、方法、类|
-|finally|异常处理代码块|
-|finalize|GC前调用的方法（已废弃）|
+|          | 作用            |
+| -------- | ------------- |
+| final    | 修饰变量、方法、类     |
+| finally  | 异常处理代码块       |
+| finalize | GC前调用的方法（已废弃） |

@@ -260,6 +260,7 @@ class Dog extends Animal{
 Dog is not abstract and does not override abstract method eat()
 ```
 
+
 因为：
 
 父类要求：
@@ -359,14 +360,14 @@ Animal构造
 
 # 九、抽象类和接口区别（面试重点）
 
-||抽象类|接口|
-|---|---|---|
-|关键字|abstract class|interface|
-|继承数量|只能继承一个|可以实现多个|
-|成员变量|普通变量|默认public static final|
-|构造方法|有|没有|
-|普通方法|可以有|Java8以后可以有default/static|
-|设计目的|描述"is a"关系|定义行为规范|
+| 抽象类  | 抽象类            | 接口                       |
+| ---- | -------------- | ------------------------ |
+| 关键字  | abstract class | interface                |
+| 继承数量 | 只能继承一个         | 可以实现多个                   |
+| 成员变量 | 普通变量           | 默认public static final    |
+| 构造方法 | 有              | 没有                       |
+| 普通方法 | 可以有            | Java8以后可以有default/static |
+| 设计目的 | 描述"is a"关系     | 定义行为规范                   |
 
 ---
 
